@@ -30,7 +30,19 @@ export class QuotesPage implements OnInit{
       title:'Add quote',
       subTitle: 'Are you sure?',
       message:'Are you sure you want to add the quote?',
-      buttons: ['OK']
+      buttons: [{
+        text: 'Yes, go ahead',
+        handler: () => {
+          console.log('OK');
+        }
+        },
+      {
+        text: 'No, I changed my mind',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancelled!');
+        }
+      }]
     });
     alert.present();
   }
