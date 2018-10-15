@@ -22,10 +22,18 @@ ionViewWillEnter() {
   this.quotes=this.quotesServices.getFavoritesQuotes();
 }
 
-onViewQuote(quote:Quote){
+onViewQuote(quote: Quote){
   const modal = this.modalCtrl.create(QuotePage, quote);
   modal.present();
   modal.onDidDismiss((remove: boolean) => {
+    if (remove) {
+      this.quotesServices.removeQuoteFromFavorites(quote);
+      //this.quotes = this.quotesServices.getFavoritesQuotes();
+      const position = this.quotes.findIndex((quoteEl: Quote) => {
+        return quoteEl.id == quote.id;
+      });
+      this.quotes.splice(position, 1);
+    }
 
   });
 }
