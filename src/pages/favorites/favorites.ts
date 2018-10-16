@@ -16,7 +16,7 @@ export class FavoritesPage {
   constructor (private quotesServices: QuotesServices,
               private modalCtrl: ModalController) {
 
-  }
+              }
 
 ionViewWillEnter() {
   this.quotes=this.quotesServices.getFavoritesQuotes();
@@ -27,15 +27,21 @@ onViewQuote(quote: Quote){
   modal.present();
   modal.onDidDismiss((remove: boolean) => {
     if (remove) {
-      this.quotesServices.removeQuoteFromFavorites(quote);
+      this.onRemoveFromFavorites(quote);
+    }
+
+  });
+}
+
+onRemoveFromFavorites(quote: Quote) {
+  this.quotesServices.removeQuoteFromFavorites(quote);
       //this.quotes = this.quotesServices.getFavoritesQuotes();
       const position = this.quotes.findIndex((quoteEl: Quote) => {
         return quoteEl.id == quote.id;
       });
       this.quotes.splice(position, 1);
-    }
-
-  });
 }
+
+
 
 }
