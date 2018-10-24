@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Toggle } from 'ionic-angular';
-import { SettingsService } from '../../services/services';
+import { SettingsService } from '../../services/settings';
 
 
 @Component({
@@ -17,8 +17,8 @@ onToggle(toggle: Toggle) {
   this.settingsService.setBackground(toggle.checked);
 }  
 
-// checkAltBackground(){
-//   return this.settingsService.isAltBackground();
-// }
+checkAltBackground(){
+  return this.settingsService.isAltBackground();
+}
 
 }

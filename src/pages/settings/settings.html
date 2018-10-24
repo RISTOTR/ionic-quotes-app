@@ -21,7 +21,7 @@
         <ion-label>Alternative background</ion-label>
       </ion-col>
       <ion-col>
-        <ion-toggle (ionchange)="onToggle($event)"></ion-toggle>
+        <ion-toggle (ionchange)="onToggle($event)" [checked]="checkAltBackground()"></ion-toggle>
       </ion-col>
     </ion-row>
   </ion-grid>

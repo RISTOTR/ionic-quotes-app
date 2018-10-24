@@ -20,6 +20,7 @@
      *ngFor="let quote of quotes">
       <ion-item 
         color="quoteBackground"
+        [ngClass]="{alt: isAltBackground()}"
         (click)="onViewQuote(quote)">
         <h2> {{ quote.person }} </h2>
         <p> {{ quote.text }} </p>
